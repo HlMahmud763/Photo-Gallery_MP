@@ -1,0 +1,166 @@
+/* Background Gradient Animation */
+body {
+    margin:0; padding:0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #00c6ff, #0072ff, #00ff6a);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+}
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Header */
+header{
+    position: fixed;
+    top:0; left:0; right:0;
+    height:60px;
+    background: rgba(255,255,255,0.95);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    z-index:1000;
+    font-weight:bold;
+}
+.profile{
+    display:flex; align-items:center;
+}
+#profile-pic{
+    width:50px; height:50px;
+    border-radius:50%;
+    border:3px solid cyan;
+    margin-right:10px;
+}
+#profile-name{ font-size:25px; }
+
+/* Hamburger */
+.hamburger{
+    width:30px; cursor:pointer;
+    display:flex; flex-direction:column;
+    justify-content:space-between;
+    height:20px;
+}    
+.hamburger div{
+    width:100%; height:4px;
+    background:#333; border-radius: 10px;
+}
+
+/* Contact Panel */
+#contact-panel{
+    position:fixed;
+    top:60px; right:-300px;
+    width:250px;
+    background:rgba(255,255,255,0.95);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding:10px;
+    border-radius: 8%;
+    transition:0.3s;
+    z-index:999;
+}
+#contact-panel.open{ right:0; }
+.contact-btn{
+    display:block;
+    margin:10px 0;
+    padding:10px;
+    text-decoration:none;
+    border-radius:16px;
+    text-align:center;
+    font-weight:bold;
+    color:white;
+    transition:0.3s;
+}
+.contact-btn.whatsapp{background:#25D366;}
+.contact-btn.facebook{background:#1877F2;}
+.contact-btn.instagram{background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);}
+.contact-btn.email{background: #c13584;}
+.contact-btn.telegram{background:#0088CC;}
+.contact-btn:hover{color:#fff; opacity:0.8;}
+
+/* Title */
+#title-section h1{
+    margin-top:80px;
+    text-align:center;
+    font-size:50px;
+    font-weight:800;
+    color:#fff;
+    text-shadow:-5px 10px 10px rgba(0,0,0,0.5);
+}
+
+/* Controls */
+#controls{
+    display:flex; justify-content:center; gap:10px; margin:20px;
+}
+#controls input{
+    padding:10px; border-radius:20px; border:2px solid #fff;
+    outline:none; width:200px; text-align:center;
+}
+#controls button{
+    padding:10px 15px; border-radius:30px;
+    border:none; background:blue; color:#fff; cursor:pointer;
+    transition:0.3s;
+}
+#controls button:hover{opacity:0.8;}
+
+/* Gallery */
+#gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+    padding:10px;
+}
+.gallery-item{
+    position:relative; overflow:hidden;
+    border-radius:25px;
+}
+.gallery-item img{
+    width:100%; height:200px; object-fit:cover;
+    display:block;
+}
+.gallery-item .info{
+    position:absolute; bottom:0; left:0; right:0;
+    background:rgba(255,255,255,0.8);
+    display:flex; justify-content:space-between;
+    align-items:center; padding:5px 10px;
+}
+.gallery-item .info .buttons button{
+    margin-left:5px; padding:5px 10px; border-radius:30px;
+    border:none; cursor:pointer; transition:0.3s;
+    background:#0072ff; color:#fff;
+}
+.gallery-item .info .buttons button:hover{opacity:0.8;}
+
+/* Lightbox */
+#lightbox{
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    display:none; justify-content:center; align-items:center;
+    background:rgba(0,0,0,0.8); z-index:1000;
+}
+#lightbox-img{ max-width:90%; max-height:90%; }
+
+/* Footer */
+footer{
+    text-align:center; padding:15px; background:#fff;
+    position:flex; bottom:0; left:0; right:0;
+    font-weight:bold; box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+}
+/* Dynamic Gradient Background */
+body {
+    margin:0; padding:0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #00c6ff, #00ff6a, #ffffff, #0072ff);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+}
+
+/* Animation for smooth gradient transition */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
+}

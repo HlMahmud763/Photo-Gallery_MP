@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmud Patwary - Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="profile">
+            <img src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-6/683662433_122235242798110933_4625042419215792861_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG9L2UUTIhs1VetXyj6JTO4BoQsMFSf1SEGhCwwVJ_VIWPIh6m1oaE2h1Sz32hWc_EiAi9xq-xLDF-oA5riAQLW&_nc_ohc=Af-egB3mAkIQ7kNvwH_IIoY&_nc_oc=AdoODATaP4qTtrw0-TWIx-dKONkLoiKw15F6KaTALHL0uKrHFpJchykeq93-lTnZqOg&_nc_zt=23&_nc_ht=scontent.fdac138-1.fna&_nc_gid=41y9xJMbZib5yVudqm-X1g&_nc_ss=7b2a8&oh=00_Af4UbR68Jnh2NBoo5jLitJgOJvy8I11tlXzypqCtxVyKVg&oe=6A161E7D" alt="Profile" id="profile-pic">
+            <span id="profile-name">Mahmud Patwary (MP)</span>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Side Contact Panel -->
+    <div id="contact-panel">
+        <h2>Contact Me</h2>
+        <a href="https://wa.me/8801792644763" target="_blank" class="contact-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://www.facebook.com/hlmahmud.mp" target="_blank" class="contact-btn facebook"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/hlmahmud.mp" target="_blank" class="contact-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://t.me/HlMahmud763" target="_blank" class="contact-btn telegram"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="mailto:mahmudpatwary763@gmail.com" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+
+    <!-- Page Title -->
+    <section id="title-section">
+        <h1>📸 MY PHOTO GALLERY 🖼️</h1>
+    </section>
+
+    <!-- Search/Add Image Section -->
+    <section id="controls">
+        <input type="text" id="searchInput" placeholder="Search images...">
+        <button id="addImageBtn">Add Image</button>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery"></section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Mahmud Patwary. All rights reserved.
+    </footer>
+
+    <!-- JS -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        const images = [
+         {src:"https://i.pinimg.com/736x/1f/0f/a1/1f0fa18f19670f80c65f2857689d085d.jpg", title:"Islamic Mosque Exterior"},
+    {src:"https://media.cnn.com/api/v1/images/stellar/prod/181121141718-mosque-11-tom-dulat.jpg?q=w_3000,h_1997,x_0,y_0,c_fill", title:"Mosque Interior Design"},
+    {src:"https://static.vecteezy.com/system/resources/previews/027/103/910/non_2x/impressive-outline-of-blue-mosque-in-istanbul-at-sunrise-or-sunset-free-photo.jpg", title:"Islamic Wallpaper Design"},
+    {src:"https://ih1.redbubble.net/image.4660520390.5843/flat,750x,075,f-pad,750x1000,f8f8f8.jpg", title:"Allahu Akbar Calligraphy"},
+    {src:"https://png.pngtree.com/thumb_back/fh260/background/20250425/pngtree-the-holy-kaaba-and-surrounding-masjid-al-haram-image_17234133.jpg", title:"KABA SHARIF"},
+    {src:"https://i.pinimg.com/736x/a7/6d/12/a76d1287a47a84908523f86b91a66811.jpg", title:"MADINA SHARIF"},
+    {src:"https://m.media-amazon.com/images/I/61664-7BAJL._AC_UF1000,1000_QL80_.jpg", title:"Islamic Calligraphy Art"},
+    {src:"https://www.shutterstock.com/shutterstock/photos/1944838384/display_1500/stock-photo-arabic-calligraphy-translation-name-of-the-prophet-muhammad-peace-be-upon-him-1944838384.jpg", title:"Prophet Muhammad Calligraphy"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t1.6435-9/89778043_676440376493056_438683256624250880_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEyqRe4grruf4WSkidkkKJnsprk4wytI06ymuTjDK0jTvj_RQ8rw75diOpxFHRsgoCwNPR0NvAAmHtma3n949la&_nc_ohc=A7Sy3QjhRvYQ7kNvwFOCCij&_nc_oc=AdnZSmCPqlItqy_OIZ4qtMkUWd4fCXryQBBK8Sczhs82bsT7ubSLCYTDVIhA3F7kf9s&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=DuAclt2exIhgzmm8ssH0TA&oh=00_Afspvl6gCPxBV_3lks92TyxNojjQ_9ao-Cwh_u5j6eO0zw&oe=69A972D4", title:"Islamic Art Design"},
+    {src:"https://media.admiddleeast.com/photos/675d5f0e8843a743193b0d7f/16:9/w_2560%2Cc_limit/GettyImages-893723788.jpg", title:"Islamic Architecture"},
+    {src:"https://img.freepik.com/premium-vector/arabic-calligraphy-ayat-ul-kursi_735815-540.jpg?semt=ais_hybrid&w=740&q=80", title:"Ayat ul Kursi Calligraphy"},
+    {src:"https://www.shutterstock.com/shutterstock/photos/2377536577/display_1500/stock-vector-palestine-arabic-calligraphy-background-vector-design-with-palestinian-holding-flag-for-greeting-2377536577.jpg", title:"FREE PALESTTINE" },
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t1.6435-9/95497074_711253849678375_6181154479560196096_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeELi_n7_Yp4eCD6QXCS-ZN_Ul_fKEqkk15SX98oSqSTXuFaMaT_vMcX7Ds91OumtwtSZ45Oh-phS2EbPAKnZ3Y2&_nc_ohc=jm3eAXn0YL8Q7kNvwGizvDZ&_nc_oc=AdlwzsDDUwkyqeQwJS8jCs3WNTgi6iZdHDsLTf8Kuiw67Bzz5NkbORPr6ryow3Jgj30&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=bVWJvyCNbcex1qmo6SrA1A&oh=00_Afsr7fg-7YpW8iTKI7-_mBwkAJ8T_BESSxKH6sx8LcXxNA&oe=69A97DED", title:"ISLAMIC GEOMETRIC PATTERN"},
+    {src:"https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/500x659/products/3169619/6156018/58_AF20191216-1004XP1_lowres__77929.1709616496.jpg?c=2&imbypass=on", title:"Islamic Wall Art"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/470584263_1841072206696528_4333223684108420854_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFrJVZR5p2ucVMoC_6W42JE5IwL6e0tOGXkjAvp7S04ZZKjlqYV8Nm_S-oKifgSXAkzHDCVaTKfaCF1yGyxXWl5&_nc_ohc=SkBVPApSTWEQ7kNvwFTAw0T&_nc_oc=AdlOZQea3Zb-PRC-Qx0QoDf9pqIymB-sviRiLYodnjMXJPLMEJ25HR7YSIDTyn1Lvww&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=eM1ZQvxGAiJpZbdattUu9w&oh=00_AfseuYL6o9Yinftn7mMPvsm6J6J7h9xzMhftL5i1VzZyEA&oe=6987E29A", title:"SABR"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t1.6435-9/95571421_711253743011719_4568148699452014592_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeF8LFCtRcxsbZl9R7rHk56lAao_EWvivXkBqj8Ra-K9eeXZ9kNmLP0nknFKBSroKtJMU5uzAw_kqfBLGIQUX8U-&_nc_ohc=39YpdJzVAD8Q7kNvwHHHGEF&_nc_oc=AdmkM-aBoDpqcXBGQXLkdN45QP3Cc-1LZzQyrSWe7Ql0HdFUE5I2HDCi6MBmmPOUv78&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=MkV8QrW5gXhW6_otZ0ifaw&oh=00_AftfazU2N0tj0j6tfMTkivmDivJlvafG9VrScKUfvP0G8Q&oe=69A96CBA", title:"ALHAMDULILLAH"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t1.6435-9/94937972_711253703011723_2730165368373903360_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGD01UZb2s4oOxeBGYPBBEQ9Vn8NbX394T1Wfw1tff3hHgFfAGG3b9egn4HpXWsKBR-GMwF3eUrsMkT5SXw-i_n&_nc_ohc=DO9naT3xPwcQ7kNvwEtXGzI&_nc_oc=AdmYGHanQ63z8H4gW_0gyMGEiEjIpjz0EsrS6DDsrOrM3u1D5k4Tj9Ahs2ZLpV0e43o&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=X8H5x4Q7Zt456e0B6_kDpQ&oh=00_Afs4oun88JktAndd0oqIxwGJ0PBuWoZSf7Tla9i2hZrrQw&oe=69A98667", title:"SUBHANALLAH"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t1.6435-9/83069890_638406520296442_6234762131045089280_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGhn6CG9IJk2IEtkiYlo0Sv6VKAq4f_rFPpUoCrh_-sU9uHNazzsFBAWXvJCwwW9moGHBMBjDT1yIAB7IncFKUh&_nc_ohc=LwIOIo1EQAAQ7kNvwFlwY7R&_nc_oc=Admc8piSSdb_LCnuXX13C_GT0cAZq5r1h223aGYyBQGtlN1_A1uDOC9HW7M_9w7CPxk&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=R-2yNznGErtYL5R3hyKpxA&oh=00_AfuphhuXsphry9cnpfcvGco1MQ69mTy_g2y1vNlTMeR6Eg&oe=69A97EF6", title:"ASTAGFIRULLAH" },
+    {src:"https://img4.dhresource.com/webp/m/f3/albu/jc/s/12/3b8b8e75-2069-4c8e-8295-d3d66b756f30.jpg", title:"Islamic Wall Hanging"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/475655321_122180213540110933_7468038959367219968_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeE4dSdT8D0ES0Qs8FLUOJmNAzwP2OwdezQDPA_Y7B17ND_BDbfbMp9bRzisXOHorJAFOurwhmzlRm0d7kOOW5fI&_nc_ohc=YhE-Co2wpg4Q7kNvwHbUkcR&_nc_oc=AdkuZoxUnE6vq7ljSBCgketuMjeZRxetF_VpE-dNvooeOKED6fBXAuqMo9IfD6LsPRI&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=RBNQL0G7N2AtXI9-Bbg2Mw&oh=00_AfsuyqVavfz7ww_bpH2fVxwoLPhk1hF2iLlsrDCRoYJswg&oe=6987EF6C", title:"MY COVER PHOTO"},
+    {src:"https://scontent.fdac7-1.fna.fbcdn.net/v/t39.30808-6/587101699_122219265626110933_5438622892990885752_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGJsuHEcJWO52WuF_rWYZ6xzu13OsxkywzO7Xc6zGTLDGxFyX4WcYKFWzXciQzoDQA0axBzTt82VEZgnGwcSxNZ&_nc_ohc=PULpYwp-mlIQ7kNvwGs2sbZ&_nc_oc=AdktJyzGAG8bNq6CXmFq0rug8gK9qqplvVYOGvHTTwbrrJVhqGriqbAckeyPb71CtGA&_nc_zt=23&_nc_ht=scontent.fdac7-1.fna&_nc_gid=UqWKLWzfA6xZhief0UV_rQ&oh=00_AfvYxCb-nuVb8sUqGo0Cz3S1hkwhNeHgL77Duzq-_uGnCg&oe=6987EF2A", title:"MY PROFILE PHOTO"}
+        ];
+
+        const gallery=document.getElementById('gallery');
+        const searchInput=document.getElementById('searchInput');
+        const addImageBtn=document.getElementById('addImageBtn');
+        const lightbox=document.getElementById('lightbox');
+        const lightboxImg=document.getElementById('lightbox-img');
+        const contactPanel=document.getElementById('contact-panel');
+        const hamburger=document.getElementById('hamburger');
+
+        function renderGallery(items){
+            gallery.innerHTML="";
+            items.forEach(item=>{
+                const div=document.createElement('div');
+                div.className="gallery-item";
+                div.innerHTML=`
+                    <img src="${item.src}" alt="${item.title}" onclick="viewImage('${item.src}')">
+                    <div class="info">
+                        <span>${item.title}</span>
+                        <div class="buttons">
+                            <button onclick="downloadImage('${item.src}',event)">Download</button>
+                            <button onclick="viewImage('${item.src}',event)">View</button>
+                            <button onclick="deleteImage('${item.src}',event)">Delete</button>
+                        </div>
+                    </div>
+                `;
+                gallery.appendChild(div);
+            });
+        }
+
+        function viewImage(src,event){
+            if(event) event.stopPropagation();
+            lightboxImg.src=src;
+            lightbox.style.display='flex';
+        }
+        function closeLightbox(){ lightbox.style.display='none'; }
+
+        function downloadImage(src,event){
+            event.stopPropagation();
+            const link=document.createElement('a');
+            link.href=src;
+            link.download=src.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function deleteImage(src,event){
+            event.stopPropagation();
+            const index=images.findIndex(img=>img.src===src);
+            if(index>-1){
+                images.splice(index,1);
+                renderGallery(images);
+            }
+        }
+
+        searchInput.addEventListener('input',function(){
+            const query=this.value.toLowerCase();
+            renderGallery(images.filter(img=>img.title.toLowerCase().includes(query)));
+        });
+
+        addImageBtn.addEventListener('click',()=>{
+            const url=prompt("Paste Image URL:");
+            if(url){
+                const title=prompt("Image Title:");
+                images.push({src:url, title:title || "Untitled"});
+                renderGallery(images);
+            }
+        });
+
+        hamburger.addEventListener('click',(e)=>{
+            e.stopPropagation();
+            contactPanel.classList.toggle('open');
+        });
+        document.body.addEventListener('click',()=> contactPanel.classList.remove('open'));
+
+        renderGallery(images);
+    </script>
+</body>
+</html>
